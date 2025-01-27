@@ -12,3 +12,8 @@ git config --global init.defaultBranch main # Ветка по умолчанию
 git init "инициализация репозитория"
 git add. # добавить все файлф в track
 git commit -m "Описание" # сделать коммит
+git status -
+git diff -
+git diff --clor-words
+
+
