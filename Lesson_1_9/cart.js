@@ -4,19 +4,19 @@ const cart = {
     totalPrice: 0,
     count: 0,
 
-    getTotalPrice () {
+    getTotalPrice: function() {
         return this.totalPrice;
     },
 
-    calculateItemPrice () {
+    calculateItemPrice: function() {
         this.totalPrice = this.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
     },
 
-    increaseCount (amount) {
-        this.count += amount; 
-    }, 
+    increaseCount: function(amount) {
+        this.count += amount; // Исправлено на использование this.count
+    },
 
-    add (name, price, quantity = 0) {
+    add: function(name, price, quantity = 1) {
         const item = {
             name: name,
             price: price,
@@ -27,22 +27,22 @@ const cart = {
         this.calculateItemPrice(); // Пересчитывает общую стоимость корзины
     },
 
-    clear () {
+    clear: function() {
         this.items = [];
         this.totalPrice = 0;
         this.count = 0;
     },
 
-    print () {
+    print: function() {
         console.log(JSON.stringify(this.items, null, 2));
-        console.log(`Общая стоимость корзины: ${this.getTotalPrice()}`);
+        console.log("Общая стоимость корзины: " + this.getTotalPrice());
     }
 };
 
 // Пример добавления товаров в корзину
-cart.add('Телевизор', 10000,);
-cart.add("Телефон", 5000, 1);
-cart.add("Планшет", 10000, 5);
+cart.add("Товар 1", 100, 2);
+cart.add("Товар 2", 200, 1);
+cart.add("Товар 3", 50, 5);
 
 // Вызов метода print для вывода информации в консоль
 cart.print();
