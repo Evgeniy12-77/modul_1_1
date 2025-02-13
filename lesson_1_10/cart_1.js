@@ -1,5 +1,7 @@
-const cart = {
-items: [],
+'use strict';
+
+const cartCopy = {
+  items: [],
   totalPrice: 0,
   count: 0,
 
@@ -10,7 +12,9 @@ items: [],
 
   calculateItemPrice() {
     // Возвращает общую стоимость без изменения состояния
-    return this.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return this.items.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0);
   },
 
   increaseCount(amount) {
@@ -24,8 +28,10 @@ items: [],
       quantity,
     };
     this.items.push(item);
-    this.increaseCount(quantity); // Увеличивает count через метод increaseCount
-    // Вызываем метод calculateItemPrice при необходимости, но не сохраняем в totalPrice
+    this.increaseCount(quantity);
+    // Увеличивает count через метод increaseCount
+    // Вызываем метод calculateItemPrice при необходимости
+    // но не сохраняем в totalPrice
   },
 
   clear() {
@@ -35,14 +41,14 @@ items: [],
 
   print() {
     console.log(JSON.stringify(this.items, null, 2));
-   console.log(`Общая стоимость корзины: ${this.totalPrice}`); 
-   // Используем геттер для получения стоимости
+    console.log(`Общая стоимость корзины: ${this.totalPrice}`);
+    // Используем геттер для получения стоимости
   },
-},
+};
 
-cart.add('Товар 1', 100, 2);
-cart.add('Товар 2', 200, 1);
-cart.add('Товар 3', 50, 5);
+cartCopy.add('Товар 1', 100, 2);
+cartCopy.add('Товар 2', 200, 1);
+cartCopy.add('Товар 3', 50, 5);
 
 // Вызов метода print для вывода информации в консоль
-cart.print();
+cartCopy.print();
