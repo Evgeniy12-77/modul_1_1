@@ -2,7 +2,7 @@
 {
   const item = 'smart проектор philips';
   const count = 15;
-  //const category = 'видео техника';
+  // const category = 'видео техника';
   const price = 1200;
 
   console.log(item);
@@ -12,7 +12,6 @@
 {
   const item = 'смартфон Xiaomi Redmi 14';
   const count = 25;
-  //const category = 'мобильные телефоны и электроника';
   const price = 1000;
 
   console.log(item);
